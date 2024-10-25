@@ -11,6 +11,8 @@
 int counter = 0;
 int currentStateCLK;
 int lastStateCLK;
+unsigned long lastButtonPress = 0;
+int pins[COLS] = {4, 5, 6, 7, 8, 9, 10, 11};
 
 bool numbers[ROWS][COLS] = {
     {1, 1, 1, 1, 1, 1, 0}, // O
@@ -24,20 +26,20 @@ bool numbers[ROWS][COLS] = {
     {1, 1, 1, 1, 1, 1, 1}, // B
     {1, 1, 1, 1, 0, 1, 1}};// 9
 
-int pins[COLS] = {4, 5, 6, 7, 8, 9, 10, 11};
-
 void setup() {
   for (int i = 0; i < COLS; i++) {
     pinMode(pins[i], OUTPUT);
   }
+  
   pinMode(D2, OUTPUT);
   pinMode(D1, OUTPUT);
+  digitalWrite(D1, LOW);
+  digitalWrite(D2, LOW);
+
   pinMode(ENC_SW, INPUT_PULLUP);
   pinMode(ENC_IN_A, INPUT);
   pinMode(ENC_IN_B, INPUT);
 
-  digitalWrite(D1, LOW);
-  digitalWrite(D2, LOW);
   Serial.begin(9600);
 }
 
@@ -59,8 +61,6 @@ void set_both_digits(int number) {
   set_num(second_num);
   delay(5);
 }
-
-unsigned long lastButtonPress = 0;
 
 void loop() {
 	currentStateCLK = digitalRead(ENC_IN_A);
