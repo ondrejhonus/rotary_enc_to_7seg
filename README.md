@@ -18,3 +18,6 @@ This project displays a value on a double digit 7 segment display. You control t
     - SW to D12
     - \+ to 5V
     - GND to GND
+
+# Image for reference
+<img src="./images/reference.jpg" width="33%"></img>
