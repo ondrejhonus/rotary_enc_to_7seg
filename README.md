@@ -1,5 +1,5 @@
 # About
-This project displays a value on a double digit 7 segment display. You control the value of the displayed number with a rotary encoder and reset the counter pushing the encoder in.
+This project displays a value on a double digit 7 segment display. You control the value of the displayed number with a rotary encoder and reset the counter pushing the encoder in. You can also go to negative values. Negative values are indicated with the two periods lighting up
 
 # Components
 1. Arduino of choice (I chose nano)
