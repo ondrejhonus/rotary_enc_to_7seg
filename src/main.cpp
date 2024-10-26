@@ -30,7 +30,6 @@ void setup() {
   for (int i = 0; i < COLS; i++) {
     pinMode(pins[i], OUTPUT);
   }
-  
   pinMode(D2, OUTPUT);
   pinMode(D1, OUTPUT);
   digitalWrite(D1, LOW);
@@ -39,8 +38,6 @@ void setup() {
   pinMode(ENC_SW, INPUT_PULLUP);
   pinMode(ENC_IN_A, INPUT);
   pinMode(ENC_IN_B, INPUT);
-
-  Serial.begin(9600);
 }
 
 void set_num(int number) {
@@ -77,15 +74,11 @@ void loop() {
 
 	if (btnState == LOW) {
 		if (millis() - lastButtonPress > 50) {
-			Serial.println("Couter reset!");
 		}
-
 		lastButtonPress = millis();
     counter = 0;
 	}
 
-	Serial.print("Counter: ");
-	Serial.println(counter);
 	lastStateCLK = currentStateCLK;
   set_both_digits(counter);
 }
