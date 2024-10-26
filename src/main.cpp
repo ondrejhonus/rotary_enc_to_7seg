@@ -65,21 +65,13 @@ void set_both_digits(int number) {
 void loop() {
 	currentStateCLK = digitalRead(ENC_IN_A);
 
-	if (currentStateCLK != lastStateCLK  && currentStateCLK == 1 && counter < 99 && counter > 0){
-		if (digitalRead(ENC_IN_B) != currentStateCLK) {
+	if (currentStateCLK != lastStateCLK  && currentStateCLK == 1){
+		if (digitalRead(ENC_IN_B) != currentStateCLK && counter < 99) {
 			counter ++;
-		} else {
+		} else if(digitalRead(ENC_IN_B) == currentStateCLK && counter > 0){
 			counter --;
 		}
 	}
-  else if(currentStateCLK != lastStateCLK  && currentStateCLK == 1 && counter < 100 && counter >= -1){
-    if (digitalRead(ENC_IN_B) == currentStateCLK && counter >= 99) {
-			counter--;
-    }
-    else if (digitalRead(ENC_IN_B) != currentStateCLK && counter <= 0){
-      counter++;
-    }
-  }
 
   int btnState = digitalRead(ENC_SW);
 
