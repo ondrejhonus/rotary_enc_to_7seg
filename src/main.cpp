@@ -52,11 +52,11 @@ void set_both_digits(int number) {
   digitalWrite(D1, LOW);
   digitalWrite(D2, HIGH);
   set_num(first_num);
-  delay(5);
+  delay(1);
   digitalWrite(D2, LOW);
   digitalWrite(D1, HIGH);
   set_num(second_num);
-  delay(5);
+  delay(1);
 }
 
 void loop() {
